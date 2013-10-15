@@ -1,0 +1,12 @@
+######################## Customized property values #########################
+ro.nfc.icon.enable=true
+ro.semc.ecclist.num=4
+ro.semc.ecclist.type.0=ambulance
+ro.semc.ecclist.number.0=102
+ro.semc.ecclist.number.1=108
+ro.semc.ecclist.type.2=firebrigade
+ro.semc.ecclist.number.2=101
+ro.semc.ecclist.type.3=police
+ro.semc.ecclist.number.3=100
+#############################################################################
+

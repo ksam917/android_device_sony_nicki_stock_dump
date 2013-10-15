@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	Please do not change this file without throughly reading the parsing codes.
+	It is affected many assumptions if its arrangement is changed.
+-->
+<root>
+	<LoggerConfig name="Enable">1</LoggerConfig>	
+	<LoggerConfig name="Clear">0</LoggerConfig>
+<!-- Mount debugfs on init.rc instead -->
+	<LoggerConfig name="DebugFS">0</LoggerConfig>
+	<program name="logcat_main">
+		<arg name="Enable">
+			<param name="Enable">1</param>
+		</arg>
+		<arg name="Exe">
+			<param name="value">/system/bin/logcat</param>
+		</arg>
+		<arg name="File">
+			<param name="dash">-f</param>
+			<param name="value">/data/alog</param>
+		</arg>
+		<arg name="Size">
+			<param name="dash">-r</param>
+			<param name="value">8192</param>
+		</arg>
+		<arg name="RotateCnt">
+			<param name="dash">-n</param>
+			<param name="value">5</param>
+		</arg>
+		<arg name="MsgFmt">
+			<param name="dash">-v</param>
+			<param name="value">threadtime</param>
+		</arg>
+		<arg name="Buffer">
+			<param name="dash">-b</param>
+			<param name="value">main</param>
+		</arg>
+		<arg name="Filter">
+			<param name="value">*:D</param>
+		</arg>
+	</program>
+	<program name="logcat_radio">
+		<arg name="Enable">
+			<param name="Enable">1</param>
+		</arg>
+		<arg name="Exe">
+			<param name="value">/system/bin/logcat</param>
+		</arg>
+		<arg name="File">
+			<param name="dash">-f</param>
+			<param name="value">/data/alog_radio</param>
+		</arg>
+		<arg name="Size">
+			<param name="dash">-r</param>
+			<param name="value">8192</param>
+		</arg>
+		<arg name="RotateCnt">
+			<param name="dash">-n</param>
+			<param name="value">3</param>
+		</arg>
+		<arg name="MsgFmt">
+			<param name="dash">-v</param>
+			<param name="value">threadtime</param>
+		</arg>
+		<arg name="Buffer">
+			<param name="dash">-b</param>
+			<param name="value">radio</param>
+		</arg>
+		<arg name="Filter">
+			<param name="value">*:D</param>
+		</arg>
+	</program>
+	<program name="logcat_events">
+		<arg name="Enable">
+			<param name="Enable">0</param>
+		</arg>
+		<arg name="Exe">
+			<param name="value">/system/bin/logcat</param>
+		</arg>
+		<arg name="File">
+			<param name="dash">-f</param>
+			<param name="value">/data/alog_events</param>
+		</arg>
+		<arg name="Size">
+			<param name="dash">-r</param>
+			<param name="value">8192</param>
+		</arg>
+		<arg name="RotateCnt">
+			<param name="dash">-n</param>
+			<param name="value">1</param>
+		</arg>
+		<arg name="MsgFmt">
+			<param name="dash">-v</param>
+			<param name="value">threadtime</param>
+		</arg>
+		<arg name="Buffer">
+			<param name="dash">-b</param>
+			<param name="value">events</param>
+		</arg>
+		<arg name="Binary">
+			<param name="Enable">0</param>
+			<param name="dash">-B</param>
+		</arg>
+		<arg name="Filter">
+			<param name="value">*:D</param>
+		</arg>
+	</program>
+	<program name="logcat_system">
+		<arg name="Enable">
+			<param name="Enable">1</param>
+		</arg>
+		<arg name="Exe">
+			<param name="value">/system/bin/logcat</param>
+		</arg>
+		<arg name="File">
+			<param name="dash">-f</param>
+			<param name="value">/data/alog_system</param>
+		</arg>
+		<arg name="Size">
+			<param name="dash">-r</param>
+			<param name="value">8192</param>
+		</arg>
+		<arg name="RotateCnt">
+			<param name="dash">-n</param>
+			<param name="value">5</param>
+		</arg>
+		<arg name="MsgFmt">
+			<param name="dash">-v</param>
+			<param name="value">threadtime</param>
+		</arg>
+		<arg name="Buffer">
+			<param name="dash">-b</param>
+			<param name="value">system</param>
+		</arg>
+		<arg name="Filter">
+			<param name="value">*:D</param>
+		</arg>
+	</program>
+	<program name="klogd">
+		<arg name="Enable">
+			<param name="Enable">1</param>
+		</arg>
+		<arg name="Exe">
+			<param name="value">/system/bin/klogd</param>
+		</arg>		
+		<arg name="Level">
+			<param name="value">8</param>
+		</arg>
+	</program>	
+	<program name="DumpSystemInfo">
+		<arg name="Enable">
+			<param name="Enable">0</param>
+		</arg>
+		<arg name="Exe">
+			<param name="value">/system/bin/DumpSystemInfo</param>
+		</arg>
+	</program>
+	<program name="ModemLinkCfg">
+		<arg name="Enable">
+			<param name="Enable">0</param>
+		</arg>
+		<arg name="Exe">
+			<param name="value">/system/bin/port-bridge</param>
+		</arg>
+		<arg name="From">
+			<param name="value">/dev/smd7</param>
+		</arg>
+		<arg name="To">
+			<param name="value">/dev/ttyHSUSB0</param>
+		</arg>
+	</program>
+	<qxdmlogger name="diaglog">
+		<parameters name="prog">/system/bin/diag_mdlog</parameters>
+		<parameters name="all_size">64</parameters>
+		<parameters name="log_size">1</parameters>
+		<parameters name="outputdir">/sdcard/diag_logs</parameters>
+		<parameters name="maskfile">/sdcard/Diag.cfg</parameters>
+		<parameters name="enable">0</parameters>
+		<parameters name="forrandump">0</parameters>
+	</qxdmlogger>
+	<driverdebug name="pm_8x60">
+		<parameters name="debug_mask">513</parameters>
+		<parameters name="idle_sleep_mode">0</parameters>
+		<parameters name="sleep_mode">0</parameters>
+	</driverdebug>
+	<driverdebug name="cpu">
+		<parameters name="scaling_governor">ondemand</parameters>
+		<parameters name="down_differential">10</parameters>
+		<parameters name="ignore_nice_load">0</parameters>
+		<parameters name="io_is_busy">1</parameters>
+		<parameters name="powersave_bias">0</parameters>
+		<parameters name="sampling_down_factor">4</parameters>
+		<parameters name="sampling_rate">50000</parameters>
+		<parameters name="up_threshold">90</parameters>
+		<parameters name="input_event_sampling_down_factor">80</parameters>
+	</driverdebug>
+	<driverdebug name="cpu_usage">
+		<parameters name="debug_cpu_usage_enable">0</parameters>
+	</driverdebug>
+	<driverdebug name="tcxo">
+		<parameters name="tcxo_sd_during_display_on">0</parameters>
+	</driverdebug>
+</root>
